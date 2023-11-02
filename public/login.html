@@ -367,7 +367,7 @@ resetLink.addEventListener('click',(e) => {
 
 e.preventDefault();
 
-const email = document.getElementById('email').value;
+const email = document.getElementById('resetEmail').value;
 
 sendPasswordResetEmail(auth, email)
   .then(() => {
