@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMCA</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600;800&display=swap" rel="stylesheet">
@@ -26,6 +27,30 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
+    </nav>
+</section>
+<section class="mobile-nav">
+    <nav class="nav-mobile">
+        <a href="index.html" class="nav-links-mobile nav-icon link-active-mobile">
+            <ion-icon name="home"></ion-icon>
+                <span class="nav-text">Home</span>
+        </a>
+        <a href="donate.html" class="nav-links-mobile ">
+            <ion-icon name="logo-paypal"></ion-icon>
+                <span class="nav-text">Donate</span>
+        </a>
+        <a href="profile.html" class="nav-links-mobile" id="mobile-nav-profile-btn">
+            <ion-icon name="person-circle"></ion-icon>
+                <span class="nav-text">Profile</span>
+        </a>
+        <a href="education.html" class="nav-links-mobile">
+            <ion-icon name="school"></ion-icon>
+                <span class="nav-text">Education</span>
+        </a>
+        <a href="contact.html" class="nav-links-mobile">
+            <ion-icon name="chatbubble"></ion-icon>
+                <span class="nav-text">Contact</span>
+        </a>
     </nav>
 </section>
 
@@ -107,32 +132,6 @@
       </div>
     </div>
 </footer>
-
-<section class="mobile-nav">
-    <nav class="nav-mobile">
-        <a href="index.html" class="nav-links-mobile nav-icon link-active-mobile">
-            <ion-icon name="home"></ion-icon>
-                <span class="nav-text">Home</span>
-        </a>
-        <a href="donate.html" class="nav-links-mobile ">
-            <ion-icon name="logo-paypal"></ion-icon>
-                <span class="nav-text">Donate</span>
-        </a>
-        <a href="profile.html" class="nav-links-mobile" id="mobile-nav-profile-btn">
-            <ion-icon name="person-circle"></ion-icon>
-                <span class="nav-text">Profile</span>
-        </a>
-        <a href="education.html" class="nav-links-mobile">
-            <ion-icon name="school"></ion-icon>
-                <span class="nav-text">Education</span>
-        </a>
-        <a href="contact.html" class="nav-links-mobile">
-            <ion-icon name="chatbubble"></ion-icon>
-                <span class="nav-text">Contact</span>
-        </a>
-    </nav>
-</section>
-<script type="module" src="firebaseConfig.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
@@ -161,9 +160,8 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
-    const database = getDatabase(app);
-    const user = auth.currentUser;
     const firestore = getFirestore(app);
+    const user = auth.currentUser;
 
     onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -184,7 +182,7 @@
                 const email = data.email;
                 const first_name = data.first_name;
             })
-            })
+        })
         // ...
 
         const desktopprofileLink = document.getElementById('desktop-nav-profile-btn');
@@ -204,10 +202,12 @@
     }
     });
 
+</script>
+
+<script>
 btnDonate.addEventListener('click', (e) => {
     window.location.href = "donate.html"
 })
-
 memorialServicesHeader.addEventListener('click', (e) => {
     window.location.href = "memorial.html"
 })

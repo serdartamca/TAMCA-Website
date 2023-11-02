@@ -1,0 +1,106 @@
+.btnDonate {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: #008ddf;
+    outline: none;
+    border-radius: 6px;
+    border: 2px solid #0069a7;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: large;
+    transition: .5s;
+    text-align: center;
+  }
+  
+  .btnDonate:hover {
+    background: #0069a7;
+    border: 2px solid #0069a7;
+    color: #ffffff;
+  }
+  
+  .news {
+    color: #000000;
+    position: relative;
+    text-align: center;
+    padding: 5%;
+  }
+  
+  .responsive-google-slides {
+    position: relative;
+    padding-top: 60%;
+    height: 0;
+    overflow: hidden;
+  }
+  .responsive-google-slides iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .memorial-services {
+    border-top: 1px solid lightgray;
+  }
+  .memorial-services-header {
+    text-align: center;
+  }
+  .memorialServicesHeader,
+  .memorialContact,
+  .memorialRedirect {
+    cursor: pointer;
+  }
+  .memorial-description {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .memorial-column {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  /* Tablet styles (e.g., screens between 768px and 1024px wide) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .btnDonate {
+      font-size: large;
+    }
+    .memorial-description {
+      display: block;
+      }
+    .memorial-column {
+      padding-top: 5%;
+      padding-bottom: 1%;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    }
+    
+    /* Mobile styles (e.g., screens less than 768px wide) */
+    @media screen and (max-width: 767px) {
+    .btnDonate {
+      width: auto;
+      height: auto;
+      background: #008ddf;
+      outline: none;
+      border-radius: 6px;
+      border: 2px solid #0069a7;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: medium;
+      transition: .5s;
+      text-align: center;
+    }
+    .memorial-description {
+    display: block;
+    }
+    .memorial-column {
+      padding-top: 10%;
+      padding-bottom: 1%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+}

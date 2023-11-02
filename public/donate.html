@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMCA</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/donate.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +106,6 @@
             </div>
         </div>
     </div>
-
 </section>
 
   <!-- Site footer -->
@@ -190,142 +190,140 @@
     const wrapper = document.querySelector('.wrapper');
 
     onAuthStateChanged(auth, (user) => {
-if (user) {
+        if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
-    const uid = user.uid;
-    const userEmail = user.userEmail;
+            const uid = user.uid;
+            const userEmail = user.userEmail;
 
-    const uidQuery = query(
-        collection(firestore, "contacts"), 
-        where("uid", "==", uid)
-        );
+            const uidQuery = query(
+                collection(firestore, "contacts"), 
+                where("uid", "==", uid)
+                );
 
-        getDocs(uidQuery)
-            .then((querySnapshot) => {
-                querySnapshot.forEach((docSnapshot) => {
-                // console.log(docSnapshot.data());
-                const data = docSnapshot.data();
-                const email = data.email;
-                const first_name = data.first_name;
-                const last_name = data.last_name;
+                getDocs(uidQuery)
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((docSnapshot) => {
+                        // console.log(docSnapshot.data());
+                        const data = docSnapshot.data();
+                        const email = data.email;
+                        const first_name = data.first_name;
+                        const last_name = data.last_name;
 
-                document.getElementById('authFirstName').textContent = first_name
-                document.getElementById('authLastName').textContent = last_name
-                document.getElementById('authEmail').textContent = email
+                        document.getElementById('authFirstName').textContent = first_name
+                        document.getElementById('authLastName').textContent = last_name
+                        document.getElementById('authEmail').textContent = email
 
-                const usersRef = collection(firestore, "users");
-                wrapper.classList.remove('active');            
-            })
-            })
-
-   
-
-    PayPal.Donation.Button({
-                //env: 'sandbox',
-                //hosted_button_id: '7G2ZC84B5J6AU',
-                env: 'production',
-                hosted_button_id: 'SZNLSFM538NC2',
-                business: 'tamca@tamca.org',
-                image: {
-                    src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-                    title: 'PayPal - The safer, easier way to pay online!',
-                    alt: 'Donate with PayPal button'
-                },
-                onComplete: function (params) {
-                    // console.log(params);
-                    
-                    const transactionId = params.tx;
-                    const transactionAmt = params.amt;
-                    const transationStatus = params.st;
-                    const transaction_date = new Date();
-                    const cause = params.item_name;
-                    const uid_first_name = document.getElementById('authFirstName').textContent;
-                    const uid_last_name = document.getElementById('authLastName').textContent;
-                    const uid_email = document.getElementById('authEmail').textContent;
-                    const uid_uid = user.uid;
-                    
-                    setDoc(doc(firestore, "donations", transactionId), {
-                    uid: uid_uid,
-                    first_name: uid_first_name,
-                    last_name: uid_last_name,
-                    email_address: uid_email,
-                    transaction_date: transaction_date,
-                    transaction_amount: transactionAmt,
-                    transaction_status: transationStatus,
-                    cause: cause
+                        const usersRef = collection(firestore, "users");
+                        wrapper.classList.remove('active');            
                     })
-                    .then(() => {
-                        alert('Thank you for your donation! Your invoice will be emailed to you soon.');
                     })
-                    .catch((error) => {
-                        console.log('Error writing user data to Firestore: ' + error.message);
-                    });
-                },
-            }).render('#paypal-donate-button-container-auth');
 
-        const desktopprofileLink = document.getElementById('desktop-nav-profile-btn');
-        const profileLink = document.getElementById('mobile-nav-profile-btn');
+            PayPal.Donation.Button({
+                        //env: 'sandbox',
+                        //hosted_button_id: '7G2ZC84B5J6AU',
+                        env: 'production',
+                        hosted_button_id: 'SZNLSFM538NC2',
+                        business: 'tamca@tamca.org',
+                        image: {
+                            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                            title: 'PayPal - The safer, easier way to pay online!',
+                            alt: 'Donate with PayPal button'
+                        },
+                        onComplete: function (params) {
+                            // console.log(params);
+                            
+                            const transactionId = params.tx;
+                            const transactionAmt = params.amt;
+                            const transationStatus = params.st;
+                            const transaction_date = new Date();
+                            const cause = params.item_name;
+                            const uid_first_name = document.getElementById('authFirstName').textContent;
+                            const uid_last_name = document.getElementById('authLastName').textContent;
+                            const uid_email = document.getElementById('authEmail').textContent;
+                            const uid_uid = user.uid;
+                            
+                            setDoc(doc(firestore, "donations", transactionId), {
+                            uid: uid_uid,
+                            first_name: uid_first_name,
+                            last_name: uid_last_name,
+                            email_address: uid_email,
+                            transaction_date: transaction_date,
+                            transaction_amount: transactionAmt,
+                            transaction_status: transationStatus,
+                            cause: cause
+                            })
+                            .then(() => {
+                                alert('Thank you for your donation! Your invoice will be emailed to you soon.');
+                            })
+                            .catch((error) => {
+                                console.log('Error writing user data to Firestore: ' + error.message);
+                            });
+                        },
+                    }).render('#paypal-donate-button-container-auth');
 
-        desktopprofileLink.href ='profile.html'
-        profileLink.href = 'profile.html'
-    // ...
-} else {
-    // User is signed out
+                const desktopprofileLink = document.getElementById('desktop-nav-profile-btn');
+                const profileLink = document.getElementById('mobile-nav-profile-btn');
 
-    wrapper.classList.add('active');
+                desktopprofileLink.href ='profile.html'
+                profileLink.href = 'profile.html'
+            // ...
+        } else {
+            // User is signed out
 
-    // Get a reference to the PayPal Donate button element
-    PayPal.Donation.Button({
-                //env: 'sandbox',
-                //hosted_button_id: '7G2ZC84B5J6AU',
-                env: 'production',
-                hosted_button_id: 'SZNLSFM538NC2',
-                business: 'tamca@tamca.org',
-                image: {
-                    src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-                    title: 'PayPal - The safer, easier way to pay online!',
-                    alt: 'Donate with PayPal button'
-                },
-                onComplete: function (params) {
-                    // console.log(params);
+            wrapper.classList.add('active');
 
-                    const transactionId = params.tx;
-                    const transactionAmt = params.amt;
-                    const transationStatus = params.st;
-                    const transaction_date = new Date();
-                    const cause = params.item_name;
-                    const anon_first_name = document.getElementById('signUpfirstName').value;
-                    const anon_last_name = document.getElementById('signUplastName').value;
-                    const anon_email = document.getElementById('signUpEmail').value;
-                    const anon_uid = crypto.randomUUID();
-                    
-                    setDoc(doc(firestore, "donations", transactionId), {
-                    uid: anon_uid,
-                    first_name: anon_first_name,
-                    last_name: anon_last_name,
-                    email_address: anon_email,
-                    transaction_date: transaction_date,
-                    transaction_amount: transactionAmt,
-                    transaction_status: transationStatus,
-                    cause: cause
-                    })
-                    .then(() => {
-                        alert('Thank you for your donation! Your invoice will be emailed to you soon.');
-                    })
-                    .catch((error) => {
-                        console.log('Error writing user data to Firestore: ' + error.message);
-                    });
-                },
-            }).render('#paypal-donate-button-container-unauth');
-    // ...
-    
-    const desktopprofileLink = document.getElementById('desktop-nav-profile-btn');
-    const profileLink = document.getElementById('mobile-nav-profile-btn');
+            // Get a reference to the PayPal Donate button element
+            PayPal.Donation.Button({
+                        //env: 'sandbox',
+                        //hosted_button_id: '7G2ZC84B5J6AU',
+                        env: 'production',
+                        hosted_button_id: 'SZNLSFM538NC2',
+                        business: 'tamca@tamca.org',
+                        image: {
+                            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                            title: 'PayPal - The safer, easier way to pay online!',
+                            alt: 'Donate with PayPal button'
+                        },
+                        onComplete: function (params) {
+                            // console.log(params);
 
-    desktopprofileLink.href ='login.html'
-    profileLink.href = 'login.html'
-}
+                            const transactionId = params.tx;
+                            const transactionAmt = params.amt;
+                            const transationStatus = params.st;
+                            const transaction_date = new Date();
+                            const cause = params.item_name;
+                            const anon_first_name = document.getElementById('signUpfirstName').value;
+                            const anon_last_name = document.getElementById('signUplastName').value;
+                            const anon_email = document.getElementById('signUpEmail').value;
+                            const anon_uid = crypto.randomUUID();
+                            
+                            setDoc(doc(firestore, "donations", transactionId), {
+                            uid: anon_uid,
+                            first_name: anon_first_name,
+                            last_name: anon_last_name,
+                            email_address: anon_email,
+                            transaction_date: transaction_date,
+                            transaction_amount: transactionAmt,
+                            transaction_status: transationStatus,
+                            cause: cause
+                            })
+                            .then(() => {
+                                alert('Thank you for your donation! Your invoice will be emailed to you soon.');
+                            })
+                            .catch((error) => {
+                                console.log('Error writing user data to Firestore: ' + error.message);
+                            });
+                        },
+                    }).render('#paypal-donate-button-container-unauth');
+            // ...
+            
+            const desktopprofileLink = document.getElementById('desktop-nav-profile-btn');
+            const profileLink = document.getElementById('mobile-nav-profile-btn');
+
+            desktopprofileLink.href ='login.html'
+            profileLink.href = 'login.html'
+        }
 });
 
 </script>

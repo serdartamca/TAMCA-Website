@@ -89,6 +89,10 @@ nav ul {
   flex: 1;
 }
 
+.content h2 {
+  font-size: 50px;
+}
+
 .banner {
   color: #000000;
   margin: auto;
@@ -96,74 +100,9 @@ nav ul {
 }
 
 .banner h1 {
-  font-size: 72px;
+  font-size: 100px;
 }
 
-.btnDonate {
-  width: auto;
-  height: auto;
-  padding: 10px;
-  background: #008ddf;
-  outline: none;
-  border-radius: 6px;
-  border: 2px solid #0069a7;
-  cursor: pointer;
-  color: #ffffff;
-  font-size: large;
-  transition: .5s;
-  text-align: center;
-}
-
-.btnDonate:hover {
-  background: #0069a7;
-  border: 2px solid #0069a7;
-  color: #ffffff;
-}
-
-.news {
-  color: #000000;
-  position: relative;
-  text-align: center;
-  font-size: larger;
-  padding: 5%;
-}
-
-.responsive-google-slides {
-  position: relative;
-  padding-top: 60%;
-  height: 0;
-  overflow: hidden;
-}
-.responsive-google-slides iframe {
-  border: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-}
-.memorial-services {
-  border-top: 1px solid lightgray;
-}
-.memorial-services-header {
-  text-align: center;
-}
-.memorialServicesHeader,
-.memorialContact,
-.memorialRedirect {
-  cursor: pointer;
-}
-.memorial-description {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-.memorial-column {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 15%;
-  padding-right: 15%;
-}
 .site-footer
 {
   background-color:#26272b;
@@ -201,7 +140,6 @@ nav ul {
 }
 .footer-quicklinks{
   width: 100%;
-  padding-right: 10%;
 }
 .footer-copyright{
   width: 100%;
@@ -390,13 +328,10 @@ nav ul {
   display: none;
 }
 .banner h1 {
-  font-size: 40px;
+  font-size: 72px;
 }
-.btnDonate {
-  font-size: large;
-}
-.news {
-  font-size: 16px;
+.content h2 {
+  font-size: 30px;
 }
 .mobile-nav {
   display: block;
@@ -436,14 +371,8 @@ nav ul {
 .content {
   padding-bottom: 10%;
 }
-.memorial-column {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 10%;
-  padding-right: 10%;
-}
 .site-footer {
-display: none;
+  padding-bottom: 10%;
 }
 }
 
@@ -465,23 +394,10 @@ display: none;
   display: none;
 }
 .banner h1 {
-  font-size: 30px;
+  font-size: 50px;
 }
-.btnDonate {
-  width: auto;
-  height: auto;
-  background: #008ddf;
-  outline: none;
-  border-radius: 6px;
-  border: 2px solid #0069a7;
-  cursor: pointer;
-  color: #ffffff;
-  font-size: medium;
-  transition: .5s;
-  text-align: center;
-}
-.news {
-  font-size: 10px;
+.content h2 {
+  font-size: 20px;
 }
 .mobile-nav {
   display: block;
@@ -520,12 +436,6 @@ display: none;
 }
 .content {
   padding-bottom: 20%;
-}
-.memorial-column {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 5%;
-  padding-right: 5%;
 }
 .site-footer {
   display: none;

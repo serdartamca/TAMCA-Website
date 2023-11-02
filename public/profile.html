@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMCA</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +51,6 @@
         <a href="education.html" class="nav-links-mobile">
             <ion-icon name="school"></ion-icon>
                 <span class="nav-text">Education</span>
-                <input type="text" id="address-input" style="display: none" placeholder="Enter your address">
         </a>
         <a href="contact.html" class="nav-links-mobile">
             <ion-icon name="chatbubble"></ion-icon>
@@ -128,7 +128,6 @@
       </div>
     </div>
   </div>
-
 </section>
     
   <!-- Site footer -->
@@ -387,12 +386,12 @@
   });
 
 btnLogout.addEventListener('click', (e) => {
-signOut(auth).then(() => {
-// Sign-out successful.
-window.location.href = "login.html"
-}).catch((error) => {
-// An error happened.
-});
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "login.html"
+  }).catch((error) => {
+    // An error happened.
+  });
 });
 
 </script>
