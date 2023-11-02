@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMCA</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<nav class="nav">
+    <a href="#" class="nav-link nav-icon">
+        <ion-icon name="home"></ion-icon>
+            <span class="nav-text">Home</span>
+    </a>
+    <a href="#" class="nav-link">
+        <ion-icon name="calendar"></ion-icon>
+            <span class="nav-text">Events</span>
+    </a>
+    <a href="#" class="nav-link">
+        <ion-icon name="person-circle"></ion-icon>
+            <span class="nav-text">Profile</span>
+    </a>
+    <a href="#" class="nav-link">
+        <ion-icon name="school"></ion-icon>
+            <span class="nav-text">Education</span>
+    </a>
+    <a href="#" class="nav-link">
+        <ion-icon name="chatbubble"></ion-icon>
+            <span class="nav-text">Contact</span>
+    </a>
+</nav>
+
+<div class="content">
+<!-- Banner section -->
+<section class="banner">
+    <h1>Welcome!</h1><br>
+    <div>
+        <button class="btnDonate" id="btnDonate" type="button">Donate</button>
+    </div>
+</section>
+<!-- Rest of your website content goes here -->
+</div>
+
+<div class="footer">Designed and Developed by Serdar Kurt<br>
+    &copy; 2023 TAMCA
+</div>
+<script>
+// Get the elements with the class 'menuBarShow' and 'navLinks'
+
+
+</script>
+<script>
+    // Get the elements with the class 'menuBarShow' and 'navLinks'
+var menuBarShow = document.querySelector(".menuBarShow");
+var menuBarHide = document.querySelector(".menuBarHide");
+var navLinks = document.getElementById("navLinks");
+
+// Add a click event listener to the 'menuBarShow' element
+menuBarShow.addEventListener("click", function() {
+    navLinks.style.left = "0"; // Move the navigation links to the left edge of the viewport to show the menu
+});
+
+// Function to hide the menu
+menuBarHide.addEventListener("click", function() {
+    navLinks.style.left = "-200px"; // Move the navigation links to the left edge of the viewport to show the menu
+});
+
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDWF7ZTpiUySdlvdrckwFLhuhVItEtYzc",
+      authDomain: "tamca-32b6f.firebaseapp.com",
+      databaseURL: "https://tamca-32b6f-default-rtdb.firebaseio.com",
+      projectId: "tamca-32b6f",
+      storageBucket: "tamca-32b6f.appspot.com",
+      messagingSenderId: "270078571509",
+      appId: "1:270078571509:web:91877bf478b18ecfa2e6bc",
+      measurementId: "G-9L44SWFGJ8"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+    const user = auth.currentUser;
+    const userArrow = document.querySelector(".user-arrow");
+    const userButtonLayout = document.querySelector(".userButtonLayout");
+    const userButtonText = document.getElementById("userButtonText");
+    const userDropdown = document.querySelector(".dropdown-content");
+
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        const email = user.email;
+        // ...
+        userArrow.style.display = "inline-block";
+        userButtonText.textContent = "Welcome, Name";
+        userButtonLayout.addEventListener("hover", function() {
+        // Redirect the user to the login page (replace "login.html" with your actual login page URL)
+        userDropdown.style.display = "block";
+        });
+        
+    } else {
+        // User is signed out
+        // ...
+        userArrow.style.display = "none";
+        userButtonText.textContent = "Login";
+        userDropdown.style.display = "none";
+                // Get the .userButtonLayout element
+        // Add a click event listener to the userButtonLayout
+        userButtonLayout.addEventListener("click", function() {
+        // Redirect the user to the login page (replace "login.html" with your actual login page URL)
+        window.location.href = "login.html";
+        });
+    }
+    });
+
+btnDonate.addEventListener('click', (e) => {
+    window.location.href = "donate.html"
+})
+
+btnLogout.addEventListener('click', (e) => {
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "login.html"
+    }).catch((error) => {
+    // An error happened.
+    });
+})
+    </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
