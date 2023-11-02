@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMCA</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/privacy.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <section class="desktop-nav">
@@ -93,9 +95,53 @@
     <p>This Privacy Policy was last updated on October 23rd, 2023.</p>
 </section>
 
-<section class="footer">Designed and Developed by Serdar Kurt<br>
-    &copy; 2023 TAMCA
-</section>
+<footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-row">
+        <div class="footer-about">
+          <h6>About</h6>
+          <p class="text-justify">Our goal is to provide those in our community with the highest quality of services, education, and assistance. We aim to provide education about Turkish culture and the Islamic religion for anyone who is or may be interested in learning and offer classes year-round. We also provide services to our members and allow everyone to participate in community service opportunities. We provided assistance for those in need by utilizing our donation platform(s) as well as the selfless kind acts of our members. We have been providing education and services for over 30 years and continue to for families and children in our community. We also host fundraisers and events with special hosts to help build stronger connections for everyone in our community.</p>
+        </div>
+
+        <div class="footer-contact">
+          <h6>Contact</h6>
+          <ul class="footer-links">
+            <li><a href="https://maps.app.goo.gl/X13j3HETgLPk1YBJA"><ion-icon name="location-sharp"></ion-icon> 541 Levittown Parkway, Levittown, PA 19054</a></li>
+            <li><a href="tel:12673640615"><ion-icon name="call-sharp"></ion-icon> +1 (267) 364-0615</a></li>
+            <li><a href="http://scanfcode.com/category/back-end-development/"><ion-icon name="mail-sharp"></ion-icon> tamca@tamca.org</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-quicklinks">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="https://tamca.org/contact.html">Contact Us</a></li>
+            <li><a href="https://tamca.org/memorial.html">Memorial Services</a></li>
+            <li><a href="https://tamca.org/privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="footer-container-copyright">
+      <div class="footer-row-copyright">
+        <div class="footer-copyright">
+          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+       <a href="index.html">TAMCA</a>.
+          </p>
+          <p>Designed and developed by Serdar Kurt</p>
+        </div>
+
+        <div class="footer-social">
+          <ul class="social-icons">
+            <li><a class="facebook" href="https://www.facebook.com/TAMCAYunusEmreCami/"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="instagram" href="https://www.instagram.com/tamcamosque/"><i class="fa fa-instagram"></i></a></li>
+            <li><a class="whatsapp" href="https://wa.me/12673460615"><i class="fa fa-whatsapp"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
@@ -147,7 +193,6 @@
         getDocs(uidQuery)
             .then((querySnapshot) => {
                 querySnapshot.forEach((docSnapshot) => {
-                console.log(docSnapshot.data());
                 const data = docSnapshot.data();
                 const email = data.email;
                 const first_name = data.first_name;
@@ -171,10 +216,6 @@
         profileLink.href = 'login.html'
     }
     });
-
-btnDonate.addEventListener('click', (e) => {
-    window.location.href = "donate.html"
-})
 </script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
