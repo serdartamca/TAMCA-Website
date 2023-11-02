@@ -69,6 +69,9 @@
     .btnDonate {
       font-size: large;
     }
+    .memorial-services-header {
+      font-size: 30px;
+    }
     .memorial-description {
       display: block;
       }
@@ -94,6 +97,9 @@
       font-size: medium;
       transition: .5s;
       text-align: center;
+    }
+    .memorial-services-header {
+      font-size: 20px;
     }
     .memorial-description {
     display: block;
