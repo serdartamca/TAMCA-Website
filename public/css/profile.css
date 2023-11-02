@@ -30,7 +30,7 @@
 .inner {
   animation: Slide_Up 1.8s ease;
   height: 900px;
-  padding: 20px;
+  padding: 10px;
   grid-area: main;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -39,7 +39,7 @@
   "c1 c1 c2"
   "c1 c1 c3"
   "c4 c4 c5";
-  gap: 20px;
+  gap: 10px;
 }
 
 .card {
@@ -136,7 +136,7 @@
   .inner {
     animation: Slide_Up 1.8s ease;
     height: 900px;
-    padding: 20px;
+    padding: 10px;
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -145,7 +145,7 @@
     "c1 c1"
     "c2 c3"
     "c4 c5";
-    gap: 20px;
+    gap: 10px;
   }
   
   .card {
@@ -207,10 +207,13 @@
   .content h3 {
     font-size: small;
   }
+  .container {
+    height: 1050px;
+  }
   .inner {
     animation: Slide_Up 1.8s ease;
-    height: 900px;
-    padding: 20px;
+    height: 1000px;
+    padding: 10px;
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr; /* Changed to 1 column */
@@ -221,7 +224,8 @@
       "c3"
       "c4"
       "c5";
-    gap: 20px;
+    gap: 1%;
+    justify-content: space-between;
   }
   
   
@@ -254,6 +258,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    block-size: fit-content;
   }
   
   .card:nth-child(4) {
