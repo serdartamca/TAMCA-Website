@@ -36,7 +36,14 @@
   transform: translateX(-400px);
 }
 
-.wrapper .form-box.register {
+.wrapper.activereset .form-box.login {
+  transition: none;
+  transform: translateX(400px);
+}
+
+
+.wrapper .form-box.register,
+.wrapper.activereset .form-box.register {
   position: absolute;
   transition: none;
   transform: translateX(400px);
@@ -47,8 +54,24 @@
   transform: translateX(0);
 }
 
+.wrapper .form-box.reset,
+.wrapper.active.form-box.reset {
+  position: absolute;
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.wrapper.activereset .form-box.reset {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
 .form-box h2 {
   font-size: 2em;
+  text-align: center;
+}
+
+.form-box.reset p {
   text-align: center;
 }
 

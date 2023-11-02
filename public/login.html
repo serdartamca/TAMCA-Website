@@ -62,7 +62,7 @@
 <div class="maincontent-container">
 <!-- Rest of your website content goes here -->
 <div class="wrapper" id="wrapper">
-    <div class="form-box login">
+    <div class="form-box login" id="form-box login">
         <h2>Login</h2>
         <div action="#">
             <div class="input-box">
@@ -78,6 +78,7 @@
             <input type="submit" id="logIn" name="login_submit" value="Login" class="btn-login"></input>
             <div class="login-register">
                 <p>Don't have an account?&nbsp;<a href="#" class="register-link">Register</a></p>
+                <p>Forgot Password?&nbsp;<a href="#" class="forgot-link">Reset Password</a></p>
             </div>
             <button class="google-login-button" id="googleLogIn">
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" class="google-logo"> Continue with Google
@@ -117,6 +118,20 @@
             <div>
                 <p style="font-size: smaller; color: lightgray;">Please note that all fields are required.</p>
             </div>
+        </div>
+    </div>
+    <div class="form-box reset">
+        <h2>Reset Password</h2>
+        <div action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" id="resetEmail" name="resetEmail" required>
+                <label>Email</label>
+            </div>
+            <input type="submit" id="resetLink" name="signup_submit" value="Send Reset Email" class="btn-login"></input>
+            <div class="login-register">
+            <p>Back to&nbsp;<a href="#" class="reset-login-link">Login</a></p>
+        </div>
         </div>
     </div>
 </div>
@@ -181,7 +196,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, linkWithPopup, GoogleAuthProvider, FacebookAuthProvider   } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, linkWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendPasswordResetEmail   } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, addDoc, updateDoc, getDocs, query, where, onSnapshot, or, serverTimestamp  } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
 
 
@@ -346,6 +361,25 @@ signInWithEmailAndPassword(auth, email, password)
     });
 
     
+})
+
+resetLink.addEventListener('click',(e) => {
+
+e.preventDefault();
+
+const email = document.getElementById('email').value;
+
+sendPasswordResetEmail(auth, email)
+  .then(() => {
+    alert('Password reset email sent!');
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 })
 
 googleLogIn.addEventListener('click', (e) => {

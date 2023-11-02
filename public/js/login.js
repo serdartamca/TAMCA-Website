@@ -1,13 +1,26 @@
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
+const forgotLink = document.querySelector('.forgot-link');
+const resetLoginLink = document.querySelector('.reset-login-link');
 
 registerLink.addEventListener('click', () => {
-    wrapper.classList.add('active'); 
+  wrapper.classList.add('active');
+  wrapper.classList.remove('activereset');  
 });
 
 loginLink.addEventListener('click', () => {
-    wrapper.classList.remove('active'); 
+    wrapper.classList.remove('active');
+    wrapper.classList.remove('activereset');  
+});
+
+forgotLink.addEventListener('click', () => {
+  wrapper.classList.add('activereset'); 
+});
+
+resetLoginLink.addEventListener('click', () => {
+  wrapper.classList.remove('active');
+  wrapper.classList.remove('activereset');  
 });
 
 const signUpButton = document.getElementById('signUp');
