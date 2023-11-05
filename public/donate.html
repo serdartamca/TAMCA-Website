@@ -180,7 +180,7 @@
       appId: "1:270078571509:web:91877bf478b18ecfa2e6bc",
       measurementId: "G-9L44SWFGJ8"
     };
-  
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
@@ -242,7 +242,7 @@
                             const uid_last_name = document.getElementById('authLastName').textContent;
                             const uid_email = document.getElementById('authEmail').textContent;
                             const uid_uid = user.uid;
-                            
+            
                             setDoc(doc(firestore, "donations", transactionId), {
                             uid: uid_uid,
                             first_name: uid_first_name,

@@ -1,0 +1,61 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "email",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "email_address",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "transaction_date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "transaction_date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "donations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "transaction_date",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
