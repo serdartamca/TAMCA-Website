@@ -1,4 +1,8 @@
 {
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20"
+  },
   "hosting": {
     "public": "public",
     "ignore": [
@@ -16,8 +20,8 @@
         "destination": "/donate.html"
       },
       {
-        "source": "/myprofile",
-        "destination": "/profile.html"
+        "source": "/dashboard",
+        "destination": "/dashboard.html"
       },
       {
         "source": "/education",
@@ -26,6 +30,22 @@
       {
         "source": "/contactus",
         "destination": "/contact.html"
+      },
+      {
+        "source": "/about",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/dashboard",
+        "destination": "/dashboard.html"
+      },
+      {
+        "source": "/tvdisplay",
+        "destination": "/tvdisplay.html"
+      },
+      {
+        "source": "/tvdisplay2",
+        "destination": "/tvdisplay2.html"
       }
     ],
     "cleanUrls": true
