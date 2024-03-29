@@ -1,21 +1,18 @@
 {
-  "name": "work-in-progress",
+  "name": "tamca",
   "version": "1.0.0",
-  "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
   },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "stripe": "^14.21.0"
+  },
+  "main": "src/functions/*.js",
+  "devDependencies": {},
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "esm": "^3.2.25",
-    "express": "^4.18.2",
-    "firebase": "^10.5.2",
-    "flask": "^0.2.10",
-    "intuit-oauth": "^4.0.0",
-    "quickbooks": "^1.0.0",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
-  },
   "description": ""
 }
